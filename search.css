@@ -1,0 +1,38 @@
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  background-color: rgb(21, 153, 146);
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.searchBtn {
+  background: none;
+  border: none;
+}
+
+.input_field {
+  padding: 0.3em;
+  padding-left: 0.6em;
+  width: 400px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: url("searchIcon.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  transition: width 0.5s;
+}
+
+.input_field:focus {
+  width: 500px;
+  transition: width 0.5s;
+}

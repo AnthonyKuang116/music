@@ -1,0 +1,15 @@
+@import "search.css";
+@import "songCount.css";
+@import "songList.css";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

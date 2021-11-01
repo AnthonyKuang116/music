@@ -1,0 +1,14 @@
+.result_counter {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border-bottom: 1px solid rgb(51, 134, 109);
+  width: 60vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.songCount {
+  font-size: 30px;
+}
