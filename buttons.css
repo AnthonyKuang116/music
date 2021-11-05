@@ -1,0 +1,31 @@
+.page_buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding-left: 5em;
+  padding-right: 5em;
+  margin-bottom: 2em;
+}
+
+#nextButton,
+#prevButton {
+  width: 80px;
+  background-color: teal;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 0.5em;
+}
+
+#nextButton:hover,
+#prevButton:hover {
+  color: white;
+  background-color: rgb(18, 197, 197);
+}
+
+#nextButton:disabled,
+#prevButton:disabled {
+  color: white;
+  background-color: lightgray;
+}

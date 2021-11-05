@@ -12,14 +12,20 @@
       <header>
         <div class="search">
             <input class="input_field" type="text" placeholder="Search..." onkeydown="searchSongs(this)"/>
-            <!-- <span><button class="searchBtn" id="searchBtn"><img src="searchIcon.png" alt="search" class="searchIcon" /></button></span> -->
         </div>
       </header>
       <main class="main_content">
+        <div class="modal" id="modal"></div>
         <div class="result_counter" id="result_counter">
             <h2>Search Albums by Artist Name:</h2>
         </div>
         <div class="display_songs" id="display_songs"></div>
       </main>
+      <footer>
+        <div class="page_buttons">
+          <button id="prevButton" onclick="previousPage()">Previous</button>
+          <button id="nextButton" onclick="nextPage()">Next</button>
+        </div>
+      </footer>
   </body>
 </html>

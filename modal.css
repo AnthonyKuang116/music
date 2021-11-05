@@ -1,0 +1,26 @@
+#modalPop {
+  height: 200;
+  width: 200;
+  background-color: gray;
+}
+
+#modal {
+  display: none;
+  width: 300px;
+  height: 300px;
+  z-index: 10000000000000;
+  position: fixed;
+  align-self: center;
+  top: 35%;
+  background-color: teal;
+  border-radius: 15px;
+}
+
+.modalTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  color: white;
+}

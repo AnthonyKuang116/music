@@ -1,6 +1,8 @@
 @import "search.css";
 @import "songCount.css";
 @import "songList.css";
+@import "buttons.css";
+@import "modal.css";
 
 *{
     margin: 0;

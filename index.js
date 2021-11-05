@@ -1,3 +1,7 @@
+let currentPage = 0;
+let maxPageSize = 50;
+let totalResults;
+
 function cardCreation(album) {
     const newAlbumn = document.createElement("div");
     newAlbumn.id = "card";
@@ -13,12 +17,20 @@ function cardCreation(album) {
     newAlbumn.appendChild(albumImg);
     newAlbumn.appendChild(albumTitle);
     document.getElementById('display_songs').append(newAlbumn)
+
+    newAlbumn.onclick = (event) => {
+        modalPop(album);
+        event.stopPropagation();
+    }
     return newAlbumn;
 }
 
-function renderResults(result) {
+function renderResults() {
+    let minSlice = maxPageSize * currentPage;
+    let maxSlice = minSlice + maxPageSize;
     document.getElementById('display_songs').innerHTML = '';
-    result.forEach(function (render) {
+    let fiftyResult = totalResults.slice(minSlice, maxSlice);
+    fiftyResult.forEach(function (render) {
         document.getElementById('display_songs').append(cardCreation(render));
     })
 }
@@ -30,7 +42,8 @@ function searchSongs(input) {
             }&media=music&entity=album&attribute=artistTerm&limit=200`)
             .then((response) => response.json())
             .then((result) => {
-                renderResults(result.results);
+                totalResults = result.results;
+                renderResults();
                 songCount(result.results, searchVal);
                 return result;
             })
@@ -45,3 +58,37 @@ function songCount(count, input) {
     document.getElementById('result_counter').append(songCount);
 }
 
+
+function modalPop(title) {
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('modal').innerHTML = `<p class="modalTitle">${title.collectionName}</p>`;
+}
+
+window.onclick = function (event) {
+    if (event.target != document.getElementById('modal')) {
+        document.getElementById('modal').style.display = "none";
+    }
+}
+
+function nextPage() {
+    document.getElementById("prevButton").disabled = false;
+    let page = Math.floor((totalResults.length / maxPageSize) - 1);
+    if (currentPage < page) {
+        currentPage += 1;
+        renderResults();
+        if (currentPage === page) {
+            document.getElementById("nextButton").disabled = true;
+        }
+    }
+}
+
+function previousPage() {
+    document.getElementById("nextButton").disabled = false;
+    if (currentPage > 0) {
+        currentPage -= 1;
+        renderResults();
+        if (currentPage === 0) {
+            document.getElementById("prevButton").disabled = true;
+        }
+    }
+}
